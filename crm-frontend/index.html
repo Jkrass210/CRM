@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>skb.</title>
+  <link href="https://unpkg.com/simplebar@latest/dist/simplebar.css" rel="stylesheet">
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="main.js" type="module" defer></script>
+  <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js" defer></script>
+  <script src="inputmask.min.js" defer></script>
+  <!--<script src="tippy.umd.min.js" type="module" defer></script>-->
+</head>
+
+<body>
+  <div class="skb" id="skb">
+    <div class="header">
+      <div class="header__container container">
+        <a class="header__link" href="#">skb.</a>
+        <input class="header__search" id="inputSearch" type="text" placeholder="Введите запрос">
+      </div>
+    </div>
+    <div class="content">
+      <div class="content__container container">
+        <h1 class="content__title">
+          Клиенты
+        </h1>
+        <div class="scroll" data-simplebar>
+          <table class="content__table table" cellspacing="0" cellpadding="0">
+            <thead class="table__thead">
+              <tr class="table__tr">
+                <th class="table__th table__th--sort th-id">ID
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="arrow_downward" clip-path="url(#clip0_221_915)">
+                      <path id="Vector" d="M2 6L2.705 6.705L5.5 3.915L5.5 10L6.5 10L6.5 3.915L9.29 6.71L10 6L6 2L2 6Z"
+                        fill="#9873FF"></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_221_915">
+                        <rect width="12" height="12" fill="white" transform="translate(12 12) rotate(-180)"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </th>
+                <th class="table__th table__th--sort th-fio">Фамилия Имя Отчество
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="arrow_downward" clip-path="url(#clip0_221_915)">
+                      <path id="Vector" d="M2 6L2.705 6.705L5.5 3.915L5.5 10L6.5 10L6.5 3.915L9.29 6.71L10 6L6 2L2 6Z"
+                        fill="#9873FF"></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_221_915">
+                        <rect width="12" height="12" fill="white" transform="translate(12 12) rotate(-180)"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <span class="th-fio__spanAY">А&nbsp;-&nbsp;Я</span>
+                  <span class="th-fio__spanYA">Я&nbsp;-&nbsp;А</span>
+                </th>
+                <th class="table__th table__th--sort th-date">Дата&nbsp;и&nbsp;время <br>создания
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="arrow_downward" clip-path="url(#clip0_221_915)">
+                      <path id="Vector" d="M2 6L2.705 6.705L5.5 3.915L5.5 10L6.5 10L6.5 3.915L9.29 6.71L10 6L6 2L2 6Z"
+                        fill="#9873FF"></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_221_915">
+                        <rect width="12" height="12" fill="white" transform="translate(12 12) rotate(-180)"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </th>
+                <th class="table__th table__th--sort th-changes">Последние<br>изменения
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="arrow_downward" clip-path="url(#clip0_221_915)">
+                      <path id="Vector" d="M2 6L2.705 6.705L5.5 3.915L5.5 10L6.5 10L6.5 3.915L9.29 6.71L10 6L6 2L2 6Z"
+                        fill="#9873FF"></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_221_915">
+                        <rect width="12" height="12" fill="white" transform="translate(12 12) rotate(-180)"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </th>
+                <th class="table__th th-changes">Контакты
+                </th>
+                <th class="table__th th-changes">Действия
+                </th>
+              </tr>
+            </thead>
+            <tbody class="table__tbody tbody" id="tbody">
+              <tr class="tbody__tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="content__box">
+          <button class="content__btn" id="addClient">
+            Добавить клиента
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+  <form class="form" id="formNew" data-simplebar>
+    <div class="form__box-top">
+      <div class="form__header">
+        <h2 class="form__title" id="formTitle">Новый клиент</h2>
+        <button class="form__close close btn-reset" id="formNewClose">
+          <span class="close__line"></span>
+          <span class="close__line"></span>
+        </button>
+      </div>
+      <div class="form__box surname">
+        <label class="surname__label label" for="inputSurname">Фамилия<span class="label__span">*</span></label>
+        <input class="surname__input input" id="inputSurname" data-min-length="2" type="text" placeholder="Фамилия*">
+      </div>
+      <div class="form__box name">
+        <label class="name__label label" for="inputName">Имя<span class="label__span">*</span></label>
+        <input class="name__input input" id="inputName" data-min-length="2" type="text" placeholder="Имя*">
+      </div>
+      <div class="form__box lastName">
+        <label class="lastName__label label" for="inputLastName">Отчество</label>
+        <input class="lastName__input input" id="inputLastName" data-min-length="2" type="text" placeholder="Отчество">
+      </div>
+    </div>
+    <div class="form__save-cont" id="boxSaveCont"></div>
+    <ul class="form__box-cont box-cont list-reset">
+    </ul>
+    <button class="form__add-btn btn-reset" id="addCont">Добавить контакт</button>
+    <p class="form__error d-none" id="formError">
+      Ошибка: новая модель организационной деятельности предполагает независимые способы реализации поставленных обществом задач!
+    </p>
+    <p class="form__error-not d-none" id="formErrorNot">
+      Что-то пошло не так...
+    </p>
+    <div class="form__box-bottom">
+      <button class="form__save-btn btn-reset" id="saveClient">Сохранить</button>
+      <button class="form__cancellation-btn btn-reset" id="cancellationClient">Отмена</button>
+    </div>
+  </form>
+
+    <form class="form formChange" id="formChange" data-simplebar>
+      <div class="form__box-top formChange__box-top">
+        <div class="form__header formChange__header">
+          <div class="formChange__grupTitle">
+            <h2 class="form__title formChange__title" id="formChangeTitle">Изменить данные</h2>
+            <span class="tbody__td--grey" id="idClientChange"></span>
+          </div>
+          <button class="form__close formChange__close close btn-reset" id="formChangeNewClose">
+            <span class="close__line"></span>
+            <span class="close__line"></span>
+          </button>
+        </div>
+        <div class="form__box formChange__box surnameChange">
+          <label class="surname__label surnameChange__label label" for="inputChangeSurname">Фамилия<span
+              class="label__span">*</span></label>
+          <input class="surname__input surnameChange__input input" id="inputChangeSurname" data-min-length="2"
+            type="text" placeholder="Фамилия*">
+        </div>
+        <div class="form__box formChange__box nameChange">
+          <label class="name__label nameChange__label label" for="inputChangeName">Имя<span
+              class="label__span">*</span></label>
+          <input class="name__input nameChange__input input" id="inputChangeName" data-min-length="2" type="text"
+            placeholder="Имя*">
+        </div>
+        <div class="form__box formChange__box lastNameChange">
+          <label class="lastName__label lastNameChange__label label" for="inputChangeLastName">Отчество</label>
+          <input class="lastName__input lastNameChange__input input" id="inputChangeLastName" data-min-length="2"
+            type="text" placeholder="Отчество">
+        </div>
+      </div>
+      <div class="form__save-cont formChange__save-cont" id="boxChangeSaveCont"></div>
+      <ul class="form__box-cont formChange__box-cont box-cont list-reset">
+      </ul>
+      <button class="form__add-btn formChange__add-btn btn-reset" id="addContChange">Добавить контакт</button>
+      <p class="form__error d-none" id="formChangeError">
+        Ошибка: новая модель организационной деятельности предполагает независимые способы реализации поставленных обществом задач!
+      </p>
+      <p class="form__error-not d-none" id="formChangeErrorNot">
+        Что-то пошло не так...
+      </p>
+      <div class="form__box-bottom formChange__box-bottom">
+        <button class="form__save-btn formChange__save-btn btn-reset" id="saveClientChange">Сохранить</button>
+        <button class="form__cancellation-btn formChange__cancellation-btn btn-reset"
+          id="cancellationClientChange">Удалить клиента</button>
+      </div>
+    </form>
+
+  <div class="delete" id="boxDelete">
+    <div class="delete__header">
+      <h2 class="delete__title">Удалить клиента</h2>
+      <button class="delete__close form__close btn-reset">
+        <span class="close__line"></span>
+        <span class="close__line"></span>
+      </button>
+    </div>
+    <p class="delete__decs">Вы&nbsp;действительно хотите удалить данного клиента?</p>
+    <p class="form__error-not d-none" id="formDeleteErrorNot">
+      Что-то пошло не так...
+    </p>
+    <button class="delete__btn-delete form__save-btn btn-reset">
+      Удалить
+    </button>
+    <button class="delete__btn-cancellation form__cancellation-btn btn-reset" id="btnCaccell">
+      Отмена
+    </button>
+  </div>
+  <!--<script>
+    var selector = document.querySelector("input[type='tel']");
+    var im = new Inputmask("+7 (999)-999-99-99");
+
+    im.mask(selector);
+  </script>-->
+</body>
+
+</html>
